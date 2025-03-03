@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-color: #111;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        .projects {
+            margin: 50px auto;
+            width: 80%;
+        }
+        .tabs a {
+            margin: 0 15px;
+            color: gold;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .cards {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        .card {
+            display: flex;
+            flex-direction: column;
+            background: linear-gradient(to bottom, #3a3a3a, #1a1a1a);
+            border-radius: 10px;
+            padding: 20px;
+            width: 30%;
+            box-shadow: 0px 4px 10px rgba(255, 215, 0, 0.5);
+            margin: 15px;
+            justify-items: space-between;
+            justify-content: space-between;
+        }
+        .card img {
+            width: 100%;
+            max-height: 25rem;
+            border-radius: 10px;
+        }
+        .tags span {
+            display: inline-block;
+            background: gold;
+            color: black;
+            padding: 5px 10px;
+            border-radius: 5px;
+            margin: 5px;
+            font-weight: bold;
+        }
+        .button {
+            display: inline-block;
+            background: gold;
+            color: black;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-top: 10px;
+            font-weight: bold;
+            text-decoration: none;
+            box-shadow: 0px 4px 10px rgba(255, 215, 0, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <h1 class="text-6xl font-bold text-center text-gray-800 relative">
+        <span class="text-white bg-black px-4 relative z-10">MY <span class="text-yellow-500">PORTFOLIO</span></span>
+    </h1>
+    <div class="tabs mt-12">
+        <a onclick="filterProjects('all')">All</a>
+        <a onclick="filterProjects('mobile')">Mobile</a>
+        <a onclick="filterProjects('web')">Web</a>
+        <a onclick="filterProjects('qa')">QA</a>
+    </div>
+    <div class="cards" id="projectContainer">
+        <div class="card" data-category="mobile">
+            <img src="projects/afrochat.jpg" alt="Bazar App">
+            <div>
+                <h2>Afrochat</h2>
+            <p>By combining Generative AI with web searczh, we are delivering faster, more tailored results for your queries from the web. </p>
+            </div>
+            <div class="tags">
+                <span>Flutter</span> <span>Dart</span> <span>FastApi</span>
+            </div>
+            <a href="https://play.google.com/store/apps/details?id=org.a2sv.afro_chat&pcampaignid=web_share" class="button">Deployment</a>
+        </div>
+        <div class="card" data-category="web">
+            <img src="projects/const.png" alt="BookStore App">
+           <div>
+            <h2>Constantaine Website</h2>
+            <p>Empowering Communities: Our Ongoing Projects and Initiatives</p>
+           </div>
+            <div class="tags">
+                <span>React</span> <span>Node.js</span> <span>MongoDB</span>
+            </div>
+            <a href="https://play.google.com/store/apps/details?id=org.a2sv.afro_chat&pcampaignid=web_share" class="button">Deployment</a>
+        </div>
+        <div class="card" data-category="qa">
+            <img src="projects/aladia.png" alt="QA Testing">
+            <div>
+                <h2>Automated Testing Suite</h2>
+            <p>End-to-end test automation for web applications.</p>
+            </div>
+            <div class="tags">
+                <span>Cypress</span> <span>JAVASCRIPT</span> <span>Storybook</span>
+            </div>
+            <a href="https://aladia.io" class="button">Deployment</a>
+        </div>
+        <div class="card" data-category="mobile">
+            <img src="projects/akil.jpg" alt="Bazar App">
+            <div>
+                <h2>Akill</h2>
+            <p>
+                Serving communities with dedication, connecting youth with purpose, growing together for a brighter future.</p>
+            </div>
+            <div class="tags">
+                <span>Flutter</span> <span>Dart</span>
+            </div>
+            <a href="#" class="button">Deployment</a>
+        </div>
+    </div>
+    <div class="sidebar">
+        <a href="index.html" class="bg-gray-700 nav-icon rounded-full flex items-center justify-center" data-text="Home">
+            <i class="fas fa-home"></i>
+        </a>
+        <a href="about.html" class="bg-gray-700 nav-icon rounded-full flex items-center justify-center" data-text="About">
+            <i class="fas fa-user"></i>
+        </a>
+        <a href="portfolio.html" class="nav-icon bg-yellow-500 text-black rounded-full flex items-center justify-center" data-text="Portfolio">
+            <i class="fas fa-briefcase"></i>
+        </a>
+        <a href="contact.html" class="bg-gray-700 nav-icon rounded-full flex items-center justify-center" data-text="Contact">
+            <i class="fas fa-envelope"></i>
+        </a>
+        <!-- <a href="" class="bg-gray-700 nav-icon rounded-full flex items-center justify-center" data-text="Chat">
+            <i class="fas fa-comment"></i>
+        </a> -->
+    </div>
+    <script>
+        function filterProjects(category) {
+            let projects = document.querySelectorAll('.card');
+            projects.forEach(project => {
+                if (category === 'all' || project.getAttribute('data-category') === category) {
+                    project.style.display = 'block';
+                } else {
+                    project.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

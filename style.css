@@ -1,0 +1,254 @@
+
+
+/* Button Hover Animation - Curtain Effect */
+.btn-hover {
+    position: relative;
+    overflow: hidden;
+}
+.btn-hover::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #fbbf24;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.5s ease-in-out;
+}
+.btn-hover:hover::after {
+    transform: scaleX(1);
+}
+.btn-hover span {
+    position: relative;
+    z-index: 2;
+}
+
+/* Navigation Icons Hover Effect */
+.nav-icon {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.nav-icon:hover {
+    background: #fbbf24;
+    color: black;
+}
+.nav-icon::after {
+    content: attr(data-text);
+    position: absolute;
+    right: 50px;
+    background: #fbbf24;
+    color: black;
+    padding: 5px 10px;
+    border-radius: 5px;
+    opacity: 0;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.more-icon {
+    position: relative;
+    padding: 12px;
+    background: #fbbf24;
+    border-radius: 100%;
+
+}
+.nav-icon:hover::after {
+    opacity: 1;
+    transform: scaleX(1);
+}
+
+
+h2 {
+    font-size: 2em;
+    font-weight: bold;
+}
+.highlight {
+    color: gold;
+}
+.filter {
+    margin: 20px 0;
+}
+.filter span {
+    margin: 0 10px;
+    cursor: pointer;
+    color: gray;
+}
+.filter span.active {
+    color: gold;
+}
+.portfolio {
+    display: grid;
+    grid-template-columns: repeat(4, 2fr);
+    gap: 5rem;
+    max-width: 900px;
+    margin: auto;
+    margin-top: 10rem;
+    justify-content: center; /* Centers the grid */
+}
+.portfolio img {
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+
+.portfolio img:hover {
+    transform: scale(2);
+}
+
+.portfolio-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    width: 20rem;
+    height: 20rem;
+}
+.sidebar {
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+.sidebar button {
+    background: #222;
+    color: white;
+    border: gold 20px solid 100%;
+    padding: 10px;
+    cursor: pointer;
+}
+.sidebar button.active {
+    background: gold;
+}
+
+ /* Modal Styles */
+ .modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+}
+.modal-content {
+    background: #222;
+    padding: 20px;
+    border-radius: 10px;
+    width: 50%;
+    text-align: center;
+    position: relative;
+}
+.modal img {
+    max-width: 100%;
+    border-radius: 10px;
+    margin-top: 15px;
+}
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 20px;
+    cursor: pointer;
+    color: white;
+}
+
+.progress-circle {
+    position: relative;
+    width: 100px;
+    height: 100px;
+}
+.progress-circle svg {
+    transform: rotate(-90deg);
+}
+.progress-circle text {
+    font-size: 16px;
+    font-weight: bold;
+    fill: white;
+}
+/* body {
+    background-color: #111;
+    color: white;
+    font-family: Arial, sans-serif;
+    padding: 50px;
+} */
+.timeline {
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+}
+.column {
+    width: 45%;
+}
+.timeline-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    position: relative;
+    height: 15rem;
+    transition: transform 0.3s ease-in-out;
+}
+.timeline-item:hover {
+    transform: translateX(100px);
+}
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: 0;
+    width: 2px;
+    height: 100%;
+    background: gray;
+}
+.icon {
+    background: gold;
+    color: black;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    margin-right: 20px;
+    position: relative;
+    z-index: 1;
+}
+.content {
+    background: #222;
+    padding: 15px;
+    border-radius: 5px;
+    flex: 1;
+    transition: max-width 0.3s ease-in-out, padding 0.3s ease-in-out;
+    max-width: 70rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    align-items: center;
+    justify-content: center;
+    height: 13rem;
+}
+.timeline-item:hover .content {
+    padding: 15px;
+    white-space: normal;
+}
+.date {
+    background: gray;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    display: inline-block;
+}
+h3 {
+    margin: 10px 0;
+}

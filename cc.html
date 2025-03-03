@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-color: #111;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        .projects {
+            margin: 50px auto;
+            width: 80%;
+        }
+        .tabs a {
+            margin: 0 15px;
+            color: gold;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .cards {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        .card {
+            background: linear-gradient(to bottom, #3a3a3a, #1a1a1a);
+            border-radius: 10px;
+            padding: 20px;
+            width: 30%;
+            box-shadow: 0px 4px 10px rgba(255, 215, 0, 0.5);
+            margin: 15px;
+        }
+        .card img {
+            width: 100%;
+            max-height: 25rem;
+            border-radius: 10px;
+        }
+        .tags span {
+            display: inline-block;
+            background: gold;
+            color: black;
+            padding: 5px 10px;
+            border-radius: 5px;
+            margin: 5px;
+            font-weight: bold;
+        }
+        .button {
+            display: inline-block;
+            background: gold;
+            color: black;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-top: 10px;
+            font-weight: bold;
+            text-decoration: none;
+            box-shadow: 0px 4px 10px rgba(255, 215, 0, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <h1 class="text-6xl font-bold text-center text-gray-800 relative">
+        <span class="text-white bg-black px-4 relative z-10">MY <span class="text-yellow-500">PORTFOLIO</span></span>
+    </h1>
+    <div class="tabs">
+        <a onclick="filterProjects('all')">All</a>
+        <a onclick="filterProjects('mobile')">Mobile</a>
+        <a onclick="filterProjects('web')">Web</a>
+        <a onclick="filterProjects('qa')">QA</a>
+    </div>
+    <div class="cards" id="projectContainer">
+        <div class="card" data-category="mobile">
+            <img src="projects/afrochat.jpg" alt="Bazar App">
+            <h2>Bazar E-Commerce App</h2>
+            <p>AI-powered marketplace for properties and vehicles.</p>
+            <div class="tags">
+                <span>Flutter</span> <span>Dart</span> <span>MongoDB</span>
+            </div>
+            <a href="#" class="button">Deployment</a>
+        </div>
+        <div class="card" data-category="web">
+            <img src="projects/aladia.png" alt="BookStore App">
+            <h2>BookStore Web App</h2>
+            <p>Manage book collections and search books.</p>
+            <div class="tags">
+                <span>React</span> <span>Node.js</span> <span>MongoDB</span>
+            </div>
+            <a href="#" class="button">GitHub Repository</a>
+        </div>
+        <div class="card" data-category="qa">
+            <img src="projects/qa_test.png" alt="QA Testing">
+            <h2>Automated Testing Suite</h2>
+            <p>End-to-end test automation for web applications.</p>
+            <div class="tags">
+                <span>Selenium</span> <span>Python</span> <span>Jenkins</span>
+            </div>
+            <a href="#" class="button">Test Report</a>
+        </div>
+    </div>
+    <script>
+        function filterProjects(category) {
+            let projects = document.querySelectorAll('.card');
+            projects.forEach(project => {
+                if (category === 'all' || project.getAttribute('data-category') === category) {
+                    project.style.display = 'block';
+                } else {
+                    project.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
